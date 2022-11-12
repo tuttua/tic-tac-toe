@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>
+      Home Page
+    </title>
+  </head>
+  <body>
+    <h1>Next Move:<img src="assets/{{['oimage','b','ximage'][n+1]}}.png" height="50"></h1>
+    <table>
+      {% for i in range(9) %}
+      {% set r = i//3 %}
+      {% set c = i%3 %}
+      {% set e= b[i] %}
+      {% set spclass=['oimage','b','ximage'][e+1]%}
+      {% if c==0 %}
+      <tr>
+      {%endif%}
+        <td>
+        {%if e==0%}
+          <a href="set/{{i}}">
+        {% endif %}
+            <img src="assets/{{spclass}}.png" height="50">
+          {% if e==0 %}
+          </a>
+          {% endif %}
+        </td>
+        {% if c == 2 %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+    </table>
+  </body>
+</html>
