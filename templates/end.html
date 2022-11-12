@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Enddddd</title>
+    <body>
+        {% if r == 2 %} 
+        <h1>The match is Draw !</h1>
+        {% else %} 
+        {% set w = ['oimage', 'b', 'ximage'][winner+1] %}
+        <h1>Congratulations <img src="/assets/{{w}}.png" height="50"> ! </h1>
+        {% endif %} 
+        <table>
+            {% for i in range(9) %}
+                {% set r = i // 3 %}
+                {% set c = i %  3 %}
+                {% set e = b[i] %}
+                {% set spclass = ['oimage', 'b', 'ximage'][e+1] %}
+                {% if c == 0 %}
+                <tr>
+                {% endif %}
+                <td class="{{spclass}}">
+                    <img src="/assets/{{spclass}}.png" height="50">
+                </td>
+                {% if c == 2 %}
+            </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        <a href="/new">Play again</a>
+    </body>
